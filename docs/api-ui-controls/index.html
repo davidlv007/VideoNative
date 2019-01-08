@@ -1392,15 +1392,15 @@ page({
 <tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>onStart</td><td>Function</td><td>否</td><td>视频开始录制的回调，没有参数</td></tr>
-<tr><td>onError</td><td>Function</td><td>否</td><td>录制视频过程出错的回调</td></tr>
+<tr><td>onstart</td><td>Function</td><td>否</td><td>视频开始录制的回调，没有参数</td></tr>
+<tr><td>onerror</td><td>Function</td><td>否</td><td>录制视频过程出错的回调</td></tr>
 </tbody>
 </table>
 <blockquote>
-<p>注意，如果接口调用失败（比如没有权限），或者接口调用成功但是录制过程失败（比如空间不足），回调的是 onError</p>
+<p>注意，如果接口调用失败（比如没有权限），或者接口调用成功但是录制过程失败（比如空间不足），回调的是 onerror</p>
 </blockquote>
 <blockquote>
-<p>注意，如果已经开始录制，此时进行再次调用 startRecord 或者转换摄像头等异常操作，会回调 onError 发生异常</p>
+<p>注意，如果已经开始录制，此时进行再次调用 startRecord 或者转换摄像头等异常操作，会回调 onerror 发生异常</p>
 </blockquote>
 <p><strong>onError 回调函数接收一个 res 对象；它的成员属性如下:</strong></p>
 <table>
