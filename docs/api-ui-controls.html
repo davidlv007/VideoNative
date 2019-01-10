@@ -1298,12 +1298,12 @@ page({
     <span class="hljs-attr">startRecord</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">var</span> camera = vn.dom.getElementById(<span class="hljs-string">'camera'</span>);
         camera.startRecord({
-            <span class="hljs-string">"complete"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{    
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"error is: "</span>+res.error);
+            <span class="hljs-string">"onstart"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{ 
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"onstart result: "</span> + res.error);
             },
 
-            <span class="hljs-string">"onError"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"onError: "</span>+ res.error);
+            <span class="hljs-string">"onerror"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"onerror result: "</span> + res.error);
             }
         })
     },
@@ -1370,7 +1370,7 @@ page({
 <tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>complete</td><td>Function</td><td>是</td><td>接口调用结束的回调函数（调用成功、失败都会执行）</td></tr>
+<tr><td>complete</td><td>Function(Object res)</td><td>是</td><td>接口调用结束的回调函数（调用成功、失败都会执行）</td></tr>
 </tbody>
 </table>
 <p><strong>complete 回调函数接收一个 res 对象；它的成员属性如下:</strong></p>
@@ -1393,8 +1393,8 @@ page({
 <tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>onstart</td><td>Function</td><td>否</td><td>视频开始录制的回调，没有参数</td></tr>
-<tr><td>onerror</td><td>Function</td><td>否</td><td>录制视频过程出错的回调</td></tr>
+<tr><td>onstart</td><td>Function(Object res)</td><td>否</td><td>视频开始录制的回调，没有参数</td></tr>
+<tr><td>onerror</td><td>Function(Object res)</td><td>否</td><td>录制视频过程出错的回调</td></tr>
 </tbody>
 </table>
 <blockquote>
@@ -1420,7 +1420,7 @@ page({
 <tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>complete</td><td>Function</td><td>是</td><td>接口调用结束的回调函数（调用成功、失败都会执行）</td></tr>
+<tr><td>complete</td><td>Function(Object res)</td><td>是</td><td>接口调用结束的回调函数（调用成功、失败都会执行）</td></tr>
 </tbody>
 </table>
 <p><strong>complete 回调函数接收一个 res 对象；它的成员属性如下:</strong></p>
