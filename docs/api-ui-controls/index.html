@@ -151,55 +151,49 @@ page ({
 <tr><td>bindFullscreenError</td><td>进入全屏失败</td><td>当一个组件无法进入全屏模式时，会收到该事件回调</td><td><em>(since 0.4)</em></td></tr>
 </tbody>
 </table>
-<p><br/></p>
 <h2><a class="anchor" aria-hidden="true" id="事件捕获与冒泡-since-04"></a><a href="#事件捕获与冒泡-since-04" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>事件捕获与冒泡 (since 0.4)</h2>
-<p><br/></p>
 <ol>
 <li>事件阶段</li>
 </ol>
-<p><br/></p>
 <ul>
 <li><strong>捕获阶段</strong></li>
 </ul>
 <blockquote>
 <p>触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）</p>
 </blockquote>
-<p><br/></p>
 <ul>
 <li><strong>冒泡阶段</strong></li>
 </ul>
 <blockquote>
 <p>触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）</p>
 </blockquote>
-<p><br/></p>
 <ol start="2">
 <li>注册监听</li>
 </ol>
-<p><br/></p>
 <blockquote>
-<p>采用 标签 静态注册 方式</p>
+<p>采用标签静态注册方式</p>
 </blockquote>
 <ul>
 <li><strong>监听捕获</strong>： <code>capture:event</code></li>
 <li><strong>监听冒泡</strong>： <code>on:event</code></li>
 </ul>
-<p><br/></p>
-<pre><code class="hljs css language-html">
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--event-capture-bubble.vnml--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
     <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
     <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
     <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span> /&gt;</span>
 
 </code></pre>
-<p><br/></p>
+<blockquote>
+<p>目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听</p>
+</blockquote>
 <ol start="3">
 <li>中断传递</li>
 </ol>
-<p><br/></p>
 <blockquote>
-<p>采用 JS 动态中断 的方式</p>
+<p>采用JS动态中断的方式</p>
 </blockquote>
-<pre><code class="hljs css language-js">
+<pre><code class="hljs css language-js">&lt;!--event-capture-bubble.js--&gt;
 captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d1'</span>) {
         <span class="hljs-comment">//在d1标签时，中断捕获事件传递</span>
@@ -216,13 +210,10 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
         e.stopPropagation();
     }
 }
-
 </code></pre>
-<p><br/></p>
 <ol start="4">
 <li>回调参数</li>
 </ol>
-<p><br/></p>
 <table>
 <thead>
 <tr><th>事件名称</th><th>事件动作</th><th>回调参数（event对象）</th></tr>
@@ -230,21 +221,33 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tbody>
 <tr><td>tap</td><td>点击</td><td>-</td></tr>
 <tr><td>longpress</td><td>长按</td><td>-</td></tr>
-<tr><td>touchstart</td><td>触摸开始</td><td>x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指) [ { identifier(手指标号)、currentX(相对当前标签的横坐标)、currentY(相对当前标签的纵坐标)、screenX(相对屏幕的横坐标)、screenY(相对屏幕的纵坐标) } ]</td></tr>
+<tr><td>touchstart</td><td>触摸开始</td><td>x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指)</td></tr>
 <tr><td>touchmove</td><td>触摸移动</td><td>同上</td></tr>
 <tr><td>touchend</td><td>触摸结束</td><td>同上</td></tr>
 </tbody>
 </table>
-<p><br/></p>
 <blockquote>
-<p>目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听</p>
+<p>changedTouches数组对象</p>
 </blockquote>
-<p><br/></p>
+<table>
+<thead>
+<tr><th>参数名称</th><th>参数类型</th><th>参数说明</th></tr>
+</thead>
+<tbody>
+<tr><td>identifier</td><td>Number</td><td>手指标号</td></tr>
+<tr><td>currentX</td><td>Number</td><td>相对当前标签的横坐标</td></tr>
+<tr><td>currentY</td><td>Number</td><td>相对当前标签的纵坐标</td></tr>
+<tr><td>screenX</td><td>Number</td><td>相对屏幕的横坐标</td></tr>
+<tr><td>screenY</td><td>Number</td><td>相对屏幕的纵坐标</td></tr>
+</tbody>
+</table>
 <ol start="5">
-<li>实际用例</li>
+<li>实际使用</li>
 </ol>
-<p><br/></p>
-<pre><code class="hljs css language-html">
+<blockquote>
+<p>这里用多层嵌套视图来举例</p>
+</blockquote>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--event-capture-bubble.vnml--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
     <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
     <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
@@ -263,10 +266,36 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
     <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
     
 <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
-
 </code></pre>
-<p><br/></p>
-<pre><code class="hljs css language-js">
+<pre><code class="hljs css language-css">&lt;!<span class="hljs-selector-tag">--event-capture-bubble</span><span class="hljs-selector-class">.css--</span>&gt;
+<span class="hljs-selector-class">.d1</span> {
+   <span class="hljs-attribute">width</span>: <span class="hljs-number">300</span>rpx;
+   <span class="hljs-attribute">height</span>: <span class="hljs-number">300</span>rpx;
+   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#7a1b9b</span>;
+   <span class="hljs-attribute">flex-direction</span>:column;
+   <span class="hljs-attribute">justify-content</span>:flex-start;
+   <span class="hljs-attribute">align-items</span>:flex-start;
+}
+
+<span class="hljs-selector-class">.d2</span> {
+   <span class="hljs-attribute">width</span>: <span class="hljs-number">200</span>rpx;
+   <span class="hljs-attribute">height</span>: <span class="hljs-number">200</span>rpx;
+   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#9b7a1b</span>;
+   <span class="hljs-attribute">flex-direction</span>:column;
+   <span class="hljs-attribute">justify-content</span>:flex-start;
+   <span class="hljs-attribute">align-items</span>:flex-start;
+}
+
+<span class="hljs-selector-class">.d3</span> {
+   <span class="hljs-attribute">width</span>: <span class="hljs-number">100</span>rpx;
+   <span class="hljs-attribute">height</span>: <span class="hljs-number">100</span>rpx;
+   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#7a9b1b</span>;
+   <span class="hljs-attribute">flex-direction</span>:column;
+   <span class="hljs-attribute">justify-content</span>:flex-start;
+   <span class="hljs-attribute">align-items</span>:flex-start;
+}
+</code></pre>
+<pre><code class="hljs css language-js">&lt;!--event-capture-bubble.js--&gt;
 captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d2'</span>) {
         <span class="hljs-comment">//在d2标签时，中断捕获事件传递</span>
@@ -283,9 +312,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
         e.stopPropagation();
     }
 }
-
 </code></pre>
-<p><br/></p>
 <blockquote>
 <p>点击d1：<br>
 捕获阶段：d1<br>
@@ -304,7 +331,6 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 事件监听：d3<br>
 冒泡阶段：d3</p>
 </blockquote>
-<p><br/></p>
 <h2><a class="anchor" aria-hidden="true" id="通用属性"></a><a href="#通用属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用属性</h2>
 <p>通用属性是指所有的组件都支持的属性。</p>
 <ul>
