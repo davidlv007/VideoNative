@@ -75,7 +75,10 @@
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="通用事件"></a><a href="#通用事件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用事件</h2>
+<p><br/></p>
+<blockquote>
 <p>通用事件是指所有组件都支持的事件。它们具有相同的回调参数。</p>
+</blockquote>
 <ul>
 <li>代码示例：</li>
 </ul>
@@ -114,20 +117,26 @@ page ({
     <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">bindTap</span>=<span class="hljs-string">"onTextTap"</span>&gt;</span>可点击文本<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
 </code></pre>
+<p><br/></p>
 <h3><a class="anchor" aria-hidden="true" id="通用事件公共参数"></a><a href="#通用事件公共参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用事件公共参数</h3>
+<p><br/></p>
 <table>
 <thead>
 <tr><th>参数名</th><th>备注</th><th>参数类型</th></tr>
 </thead>
 <tbody>
-<tr><td>type</td><td>事件名</td><td>String</td></tr>
-<tr><td>timestamp</td><td>时间戳(毫秒)</td><td>Number</td></tr>
-<tr><td>event</td><td>返回参数包裹结构</td><td>Object</td></tr>
-<tr><td>dataset</td><td>DOM节点的数据集</td><td>Object</td></tr>
-<tr><td>target</td><td>DOM对象</td><td>Object</td></tr>
+<tr><td>type</td><td>事件名称</td><td>String</td></tr>
+<tr><td>timestamp</td><td>事件发生时间戳(毫秒)</td><td>Number</td></tr>
+<tr><td>target</td><td>事件触发的DOM对象</td><td>Object</td></tr>
+<tr><td>dataset</td><td>事件触发的DOM对象数据集</td><td>Object</td></tr>
+<tr><td>currentTarget</td><td>当前的DOM对象</td><td>Object (since 0.4)</td></tr>
+<tr><td>event</td><td>事件对象</td><td>Object</td></tr>
 </tbody>
 </table>
+<p><br/></p>
+<blockquote>
 <p><strong>注：如下通用事件中注明的参数都包裹在 event 下</strong></p>
+</blockquote>
 <table>
 <thead>
 <tr><th>事件 Key</th><th>事件类型</th><th>适用范围</th><th>备注</th></tr>
@@ -135,13 +144,167 @@ page ({
 <tbody>
 <tr><td>bindTap</td><td>点击</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td></tr>
 <tr><td>bindLongPress</td><td>长按</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td></tr>
-<tr><td>bindTouchStart</td><td>触摸开始</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>event.x: Number, event.y: Number</td></tr>
+<tr><td>bindTouchStart</td><td>触摸开始</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>event.x: Number, event.y: Number, event.changedTouches: Array [ identifier: Number、currentX: Number、currentY: Number、screenX: Number、screenY: Number ]</td></tr>
 <tr><td>bindTouchMove</td><td>触摸移动</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>event.x: Number, event.y: Number</td></tr>
 <tr><td>bindTouchEnd</td><td>触摸结束</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>event.x: Number, event.y: Number</td></tr>
 <tr><td>bindFullscreenChange</td><td>全屏状态变化</td><td>当一个组件进入或退出全屏模式时，会收到该事件回调</td><td><em>(since 0.4)</em></td></tr>
 <tr><td>bindFullscreenError</td><td>进入全屏失败</td><td>当一个组件无法进入全屏模式时，会收到该事件回调</td><td><em>(since 0.4)</em></td></tr>
 </tbody>
 </table>
+<p><br/></p>
+<h2><a class="anchor" aria-hidden="true" id="事件捕获与冒泡-since-04"></a><a href="#事件捕获与冒泡-since-04" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>事件捕获与冒泡 (since 0.4)</h2>
+<p><br/></p>
+<ol>
+<li>事件阶段</li>
+</ol>
+<p><br/></p>
+<ul>
+<li><strong>捕获阶段</strong></li>
+</ul>
+<blockquote>
+<p>触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）</p>
+</blockquote>
+<p><br/></p>
+<ul>
+<li><strong>冒泡阶段</strong></li>
+</ul>
+<blockquote>
+<p>触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）</p>
+</blockquote>
+<p><br/></p>
+<ol start="2">
+<li>注册监听</li>
+</ol>
+<p><br/></p>
+<blockquote>
+<p>采用 标签 静态注册 方式</p>
+</blockquote>
+<ul>
+<li><strong>监听捕获</strong>： <code>capture:event</code></li>
+<li><strong>监听冒泡</strong>： <code>on:event</code></li>
+</ul>
+<p><br/></p>
+<pre><code class="hljs css language-html">
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
+    <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
+    <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
+    <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span> /&gt;</span>
+
+</code></pre>
+<p><br/></p>
+<ol start="3">
+<li>中断传递</li>
+</ol>
+<p><br/></p>
+<blockquote>
+<p>采用 JS 动态中断 的方式</p>
+</blockquote>
+<pre><code class="hljs css language-js">
+captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d1'</span>) {
+        <span class="hljs-comment">//在d1标签时，中断捕获事件传递</span>
+        e.stopPropagation();
+    }
+},
+<span class="hljs-attr">bindHandle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-comment">//监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响</span>
+    ...
+},
+<span class="hljs-attr">bubbleHandle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d1'</span>) {
+        <span class="hljs-comment">//在d1标签时，中断冒泡事件传递</span>
+        e.stopPropagation();
+    }
+}
+
+</code></pre>
+<p><br/></p>
+<ol start="4">
+<li>回调参数</li>
+</ol>
+<p><br/></p>
+<table>
+<thead>
+<tr><th>事件名称</th><th>事件动作</th><th>回调参数（event对象）</th></tr>
+</thead>
+<tbody>
+<tr><td>tap</td><td>点击</td><td>-</td></tr>
+<tr><td>longpress</td><td>长按</td><td>-</td></tr>
+<tr><td>touchstart</td><td>触摸开始</td><td>x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指) [ { identifier(手指标号)、currentX(相对当前标签的横坐标)、currentY(相对当前标签的纵坐标)、screenX(相对屏幕的横坐标)、screenY(相对屏幕的纵坐标) } ]</td></tr>
+<tr><td>touchmove</td><td>触摸移动</td><td>同上</td></tr>
+<tr><td>touchend</td><td>触摸结束</td><td>同上</td></tr>
+</tbody>
+</table>
+<p><br/></p>
+<blockquote>
+<p>目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听</p>
+</blockquote>
+<p><br/></p>
+<ol start="5">
+<li>实际用例</li>
+</ol>
+<p><br/></p>
+<pre><code class="hljs css language-html">
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
+    <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
+    <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
+    <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d2"</span>
+        <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
+        <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
+        <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>&gt;</span>
+        
+        <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d3"</span>
+            <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
+            <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
+            <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>/&gt;</span>
+        
+    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+
+</code></pre>
+<p><br/></p>
+<pre><code class="hljs css language-js">
+captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d2'</span>) {
+        <span class="hljs-comment">//在d2标签时，中断捕获事件传递</span>
+        e.stopPropagation();
+    }
+},
+<span class="hljs-attr">bindHandle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-comment">//监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响</span>
+    ...
+},
+<span class="hljs-attr">bubbleHandle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.currentTarget.getId() === <span class="hljs-string">'d3'</span>) {
+        <span class="hljs-comment">//在d3标签时，中断冒泡事件传递</span>
+        e.stopPropagation();
+    }
+}
+
+</code></pre>
+<p><br/></p>
+<blockquote>
+<p>点击d1：<br>
+捕获阶段：d1<br>
+事件监听：d1<br>
+冒泡阶段：d1</p>
+</blockquote>
+<blockquote>
+<p>点击d2：<br>
+捕获阶段：d2<br>
+事件监听：d2<br>
+冒泡阶段：d2 -&gt; d1</p>
+</blockquote>
+<blockquote>
+<p>点击d3：<br>
+捕获阶段：d1 -&gt; d2<br>
+事件监听：d3<br>
+冒泡阶段：d3</p>
+</blockquote>
+<p><br/></p>
 <h2><a class="anchor" aria-hidden="true" id="通用属性"></a><a href="#通用属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用属性</h2>
 <p>通用属性是指所有的组件都支持的属性。</p>
 <ul>
@@ -1472,4 +1635,4 @@ page({
 <li>其他系统抛出的错误</li>
 </ul></li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/api-js-interfaces"><span>JS API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#总览">总览</a></li><li><a href="#页面生命周期事件">页面生命周期事件</a></li><li><a href="#通用事件">通用事件</a><ul class="toc-headings"><li><a href="#通用事件公共参数">通用事件公共参数</a></li></ul></li><li><a href="#通用属性">通用属性</a></li><li><a href="#flexbox-布局属性">Flexbox 布局属性</a></li><li><a href="#view">view</a><ul class="toc-headings"><li><a href="#box-shadow-的详细说明">box-shadow 的详细说明</a></li><li><a href="#border-color-的详细说明">border-color 的详细说明</a></li><li><a href="#border-style-的详细说明">border-style 的详细说明</a></li><li><a href="#border-width-border-color-border-style-的说明">border-width &amp; border-color &amp; border-style 的说明</a></li></ul></li><li><a href="#text">text</a></li><li><a href="#button">button</a></li><li><a href="#image">image</a></li><li><a href="#checkbox">checkbox</a></li><li><a href="#input">input</a></li><li><a href="#textarea">textarea</a></li><li><a href="#list">list</a></li><li><a href="#header-footer">header &amp; footer</a><ul class="toc-headings"><li><a href="#header">header</a></li><li><a href="#footer">footer</a></li><li><a href="#pull-footer">pull-footer</a></li></ul></li><li><a href="#scroll-view">scroll-view</a></li><li><a href="#view-pager">view-pager</a></li><li><a href="#video">video</a></li><li><a href="#camera">camera</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Tencent Inc</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/api-js-interfaces"><span>JS API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#总览">总览</a></li><li><a href="#页面生命周期事件">页面生命周期事件</a></li><li><a href="#通用事件">通用事件</a><ul class="toc-headings"><li><a href="#通用事件公共参数">通用事件公共参数</a></li></ul></li><li><a href="#事件捕获与冒泡-since-04">事件捕获与冒泡 (since 0.4)</a></li><li><a href="#通用属性">通用属性</a></li><li><a href="#flexbox-布局属性">Flexbox 布局属性</a></li><li><a href="#view">view</a><ul class="toc-headings"><li><a href="#box-shadow-的详细说明">box-shadow 的详细说明</a></li><li><a href="#border-color-的详细说明">border-color 的详细说明</a></li><li><a href="#border-style-的详细说明">border-style 的详细说明</a></li><li><a href="#border-width-border-color-border-style-的说明">border-width &amp; border-color &amp; border-style 的说明</a></li></ul></li><li><a href="#text">text</a></li><li><a href="#button">button</a></li><li><a href="#image">image</a></li><li><a href="#checkbox">checkbox</a></li><li><a href="#input">input</a></li><li><a href="#textarea">textarea</a></li><li><a href="#list">list</a></li><li><a href="#header-footer">header &amp; footer</a><ul class="toc-headings"><li><a href="#header">header</a></li><li><a href="#footer">footer</a></li><li><a href="#pull-footer">pull-footer</a></li></ul></li><li><a href="#scroll-view">scroll-view</a></li><li><a href="#view-pager">view-pager</a></li><li><a href="#video">video</a></li><li><a href="#camera">camera</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Tencent Inc</section></footer></div></body></html>
