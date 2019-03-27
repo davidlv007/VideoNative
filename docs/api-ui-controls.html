@@ -236,17 +236,17 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 </ol>
 <p>这里用多层嵌套视图来举例</p>
 <pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--event-capture-bubble.vnml--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d1"</span>
     <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
     <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
     <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>&gt;</span>
     
-    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d2"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d2"</span>
         <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
         <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
         <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>&gt;</span>
         
-        <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d3"</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d3"</span>
             <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
             <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"bindHandle"</span> 
             <span class="hljs-attr">on:tap</span>=<span class="hljs-string">"bubbleHandle"</span>/&gt;</span>
