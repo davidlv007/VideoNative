@@ -75,11 +75,11 @@
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="通用事件"></a><a href="#通用事件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用事件</h2>
-<p><strong>通用事件是指所有组件都支持的事件</strong></p>
+<p>通用事件是指所有组件都支持的事件</p>
 <ul>
-<li><p><strong>监听方式：</strong> <code>bind[Event]</code></p></li>
-<li><p><strong>公共参数：</strong></p></li>
+<li><strong>监听方式：</strong> <code>bind[Event]</code></li>
 </ul>
+<p>公共参数：</p>
 <table>
 <thead>
 <tr><th>参数名</th><th>备注</th><th>参数类型</th><th>取值范围</th><th>备注</th></tr>
@@ -89,15 +89,13 @@
 <tr><td>timestamp</td><td>事件发生时间戳(毫秒)</td><td>Number</td><td>-</td><td>-</td></tr>
 <tr><td>target</td><td>事件触发的DOM对象</td><td>Object</td><td>-</td><td>-</td></tr>
 <tr><td>dataset</td><td>事件触发的DOM对象数据集</td><td>Object</td><td>-</td><td>-</td></tr>
-<tr><td>event</td><td>事件对象</td><td>Object</td><td>-</td><td>存放事件的额外参数</td></tr>
+<tr><td>event</td><td>事件对象</td><td>Object</td><td>-</td><td>存放事件的其它参数</td></tr>
 </tbody>
 </table>
-<ul>
-<li>事件种类：</li>
-</ul>
+<p>事件种类：</p>
 <table>
 <thead>
-<tr><th>名称</th><th>动作</th><th>适用场景</th><th>额外参数</th><th>捕获与冒泡 <em>(since 0.4)</em></th><th>备注</th></tr>
+<tr><th>名称</th><th>动作</th><th>适用场景</th><th>其它参数</th><th>捕获与冒泡 <em>(since 0.4)</em></th><th>备注</th></tr>
 </thead>
 <tbody>
 <tr><td>Tap</td><td>点击</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>-</td><td>支持</td><td>-</td></tr>
@@ -109,9 +107,7 @@
 <tr><td>FullscreenError</td><td>进入全屏失败</td><td>当一个组件无法进入全屏模式时，会收到该事件回调</td><td>-</td><td>不支持</td><td><em>since 0.4</em></td></tr>
 </tbody>
 </table>
-<ul>
-<li>代码示例：</li>
-</ul>
+<p>代码示例：</p>
 <pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--commonEvent.vnml--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">bindTap</span>=<span class="hljs-string">"onTextTap"</span>&gt;</span>可点击文本<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
@@ -162,7 +158,6 @@ page ({
 <ol start="2">
 <li>注册监听</li>
 </ol>
-<p>采用标签静态注册方式</p>
 <ul>
 <li><strong>监听捕获：</strong> <code>capture:event</code></li>
 <li><strong>监听冒泡：</strong> <code>on:event</code></li>
@@ -179,7 +174,7 @@ page ({
 <li>中断传递</li>
 </ol>
 <ul>
-<li><strong>采用JS动态中断的方式：</strong> <code>e.stopPropagation();</code></li>
+<li><strong>调用方法：</strong> <code>e.stopPropagation();</code></li>
 </ul>
 <pre><code class="hljs css language-js">&lt;!--event-capture-bubble.js--&gt;
 captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
@@ -200,7 +195,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 }
 </code></pre>
 <ol start="4">
-<li>额外参数(基于公共参数)</li>
+<li>其它参数(基于公共参数)</li>
 </ol>
 <table>
 <thead>
@@ -212,9 +207,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tr><td>event.changedTouches</td><td>Array</td><td>经改变的触摸手指</td><td>-</td><td>目前仅返回单个触摸手指</td></tr>
 </tbody>
 </table>
-<ul>
-<li>changedTouches 数组项对象</li>
-</ul>
+<p>changedTouches 数组项对象</p>
 <table>
 <thead>
 <tr><th>参数名称</th><th>参数类型</th><th>参数说明</th><th>取值范围</th><th>备注</th></tr>
@@ -230,9 +223,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <ol start="5">
 <li>代码示例</li>
 </ol>
-<ul>
-<li>这里用多层嵌套视图来举例</li>
-</ul>
+<p>这里用多层嵌套视图来举例</p>
 <pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--event-capture-bubble.vnml--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d1"</span>
     <span class="hljs-attr">capture:tap</span>=<span class="hljs-string">"captureHandle"</span> 
@@ -299,9 +290,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
     }
 }
 </code></pre>
-<ul>
-<li>点击视图后回调情况：</li>
-</ul>
+<p>点击视图后回调情况：</p>
 <pre><code class="hljs">点击<span class="hljs-built_in">d1</span>：  
 捕获阶段：<span class="hljs-built_in">d1</span>  
 事件监听：<span class="hljs-built_in">d1</span>  
