@@ -213,7 +213,7 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 </thead>
 <tbody>
 <tr><td>currentTarget</td><td>Object</td><td>当前的DOM对象</td><td>-</td><td>-</td></tr>
-<tr><td>phase</td><td>Number</td><td>事件对象-事件阶段</td><td>0 ~ 3</td><td>0：事件处于响应阶段(bind)<br/>  1：事件处于捕获阶段(capture)<br/>  2：事件到达目标节点(capture / on)<br/>  3：事件处于冒泡阶段(on)<br/></td></tr>
+<tr><td>phase</td><td>Number</td><td>事件对象-事件阶段</td><td>0 ~ 3</td><td>0：事件处于响应阶段(bind)<br/>  1：事件处于捕获阶段(capture)<br/>  2：事件到达target结点(capture / on)<br/>  3：事件处于冒泡阶段(on)<br/></td></tr>
 <tr><td>event.changedTouches</td><td>Array</td><td>坐标值发生改变的触摸手指</td><td>-</td><td>该参数目前仅限于touchstart、touchmove、touchend事件才会返回，并且只返回单个触摸手指</td></tr>
 </tbody>
 </table>
