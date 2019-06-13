@@ -873,7 +873,7 @@ page({
 <tr><td>EventHandler</td><td>bindItemTap</td><td>function(Object params)</td><td></td><td>列表 Item 点击，位置参数为 params.event.position</td></tr>
 <tr><td>EventHandler</td><td>bindItemLoad</td><td>function(Object params)</td><td></td><td>列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
 <tr><td>EventHandler</td><td>bindItemAttach</td><td>function(Object params)</td><td></td><td>列表 Item 上屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
-<tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
+<tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。</td></tr>
 <tr><td>EventHandler</td><td>bindHeaderRefreshing</td><td>function(Object params)</td><td></td><td>列表发生了下拉刷新</td></tr>
 <tr><td>EventHandler</td><td>bindFooterRefreshing</td><td>function(Object params)</td><td></td><td>列表发生了上拉加载</td></tr>
 <tr><td>EventHandler</td><td>bindScroll</td><td>function(Object params)</td><td></td><td>列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）</td></tr>
