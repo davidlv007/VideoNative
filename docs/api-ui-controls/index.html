@@ -595,7 +595,7 @@ border-color:red;                   // 四边
 <tr><td>Property</td><td>foucs-point-x</td><td>Float(0~1)</td><td>0.5</td><td>重心裁剪功能，仅在 mode 为 focus-crop 时生效</td></tr>
 <tr><td>Property</td><td>foucs-point-y</td><td>Float(0~1)</td><td>0.5</td><td>重心裁剪功能，仅在 mode 为 focus-crop 时生效</td></tr>
 <tr><td>Property</td><td>shape</td><td>Enum</td><td>normal</td><td>normal/circle</td></tr>
-<tr><td>Property</td><td>filter</td><td></td><td></td><td>滤镜参数，目前只支持: blur; 例子：filter=&quot;blur(1px)&quot; <em>(since 0.5)</em></td></tr>
+<tr><td>Property</td><td>filter</td><td></td><td></td><td>滤镜参数，目前只支持: blur; 注：不支持动图模糊。例子：filter=&quot;blur(1px)&quot; <em>(since 0.5)</em></td></tr>
 <tr><td>EventHandler</td><td>bindload</td><td>function(Object params)</td><td></td><td>当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。</td></tr>
 <tr><td>EventHandler</td><td>binderror</td><td>function(Object params)</td><td></td><td>当src指定的图片加载失败时触发这个事件。无event属性。</td></tr>
 </tbody>
@@ -871,9 +871,9 @@ page({
 <tr><td>Property</td><td>vn:switch</td><td>String</td><td>&quot;case&quot;</td></tr>
 <tr><td>Property</td><td>direction</td><td>Enum</td><td>column</td><td>column/row，滚动方向</td></tr>
 <tr><td>EventHandler</td><td>bindItemTap</td><td>function(Object params)</td><td></td><td>列表 Item 点击，位置参数为 params.event.position</td></tr>
-<tr><td>EventHandler</td><td>bindItemLoad</td><td>function(Object params)</td><td></td><td>列表 Item 与数据绑定时回调，在Item重用时还会回调，位置参数为 params.event.position</td></tr>
-<tr><td>EventHandler</td><td>bindItemAttach</td><td>function(Object params)</td><td></td><td>列表 Item 上屏时回调，位置参数为 params.event.position</td></tr>
-<tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>列表 Item 下屏时回调，位置参数为 params.event.position</td></tr>
+<tr><td>EventHandler</td><td>bindItemLoad</td><td>function(Object params)</td><td></td><td>列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
+<tr><td>EventHandler</td><td>bindItemAttach</td><td>function(Object params)</td><td></td><td>列表 Item 上屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
+<tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
 <tr><td>EventHandler</td><td>bindHeaderRefreshing</td><td>function(Object params)</td><td></td><td>列表发生了下拉刷新</td></tr>
 <tr><td>EventHandler</td><td>bindFooterRefreshing</td><td>function(Object params)</td><td></td><td>列表发生了上拉加载</td></tr>
 <tr><td>EventHandler</td><td>bindScroll</td><td>function(Object params)</td><td></td><td>列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）</td></tr>
