@@ -872,7 +872,7 @@ page({
 <tr><td>Property</td><td>vn:switch</td><td>String</td><td>&quot;case&quot;</td></tr>
 <tr><td>Property</td><td>direction</td><td>Enum</td><td>column</td><td>column/row，滚动方向</td></tr>
 <tr><td>EventHandler</td><td>bindItemTap</td><td>function(Object params)</td><td></td><td>列表 Item 点击，位置参数为 params.event.position</td></tr>
-<tr><td>EventHandler</td><td>bindItemLoad</td><td>function(Object params)</td><td></td><td>列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
+<tr><td>EventHandler</td><td>bindItemLoad</td><td>function(Object params)</td><td></td><td>列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> } 注：此时cell节点还未上屏，对它的操作可能返回非预期的结果。</td></tr>
 <tr><td>EventHandler</td><td>bindItemAttach</td><td>function(Object params)</td><td></td><td>列表 Item 上屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> }</td></tr>
 <tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.5)</em> } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。</td></tr>
 <tr><td>EventHandler</td><td>bindHeaderRefreshing</td><td>function(Object params)</td><td></td><td>列表发生了下拉刷新</td></tr>
