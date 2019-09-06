@@ -340,33 +340,33 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tbody>
 <tr><td>class</td><td>String</td><td></td><td>引用 vnss 中的样式类；多个样式可用空格分隔</td></tr>
 <tr><td>id</td><td>String</td><td></td><td>用于 CSS 匹配和 getElementById()</td></tr>
-<tr><td>width</td><td>[rpx pt percent auto]</td><td>auto</td></tr>
-<tr><td>height</td><td>[rpx pt percent auto]</td><td>auto</td></tr>
+<tr><td>width</td><td>[rpx pt dp px % auto]</td><td>auto</td></tr>
+<tr><td>height</td><td>[rpx pt dp px % auto]</td><td>auto</td></tr>
 <tr><td>aspect-ratio</td><td>Float</td><td></td><td>宽高比</td></tr>
 <tr><td>background-stretch-param</td><td>[整数的组合]</td><td></td><td>本属性需配合 background 属性一起使用才有效。输入格式有两种；第一种，对一个坐标点进行拉伸，格式为：top left，例：25 15 (对背景图片坐标点(15,25)进行拉伸)。第二种，对一个区域进行拉伸，格式：top lengthY left lengthX，例：25 10 22 15 (将对背景图片的纵坐标25位置到35位置进行拉伸，对横坐标22位置到37位置进行拉伸)。注：只能填写0和正整数，不带单位；含义是1倍图的像素坐标和长度。</td></tr>
 <tr><td>background-color</td><td>color</td><td>#FFFFFFFF</td><td>取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高</td></tr>
 <tr><td>background</td><td>String</td><td></td><td>1.不拉伸的图片如: ../image/btn_bg</td></tr>
 <tr><td>alpha</td><td>Float</td><td>1</td><td>0:透明 到 1:不透明</td></tr>
-<tr><td>padding</td><td>[rpx pt % 组合]</td><td>0rpx</td><td>参见 CSS 标准写法</td></tr>
-<tr><td>padding-left</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
-<tr><td>padding-right</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
-<tr><td>padding-top</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
-<tr><td>padding-bottom</td><td>[rpx pt percent]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
-<tr><td>margin</td><td>[rpx pt % 组合]</td><td>0rpx</td><td>参见 CSS 标准写法</td></tr>
-<tr><td>margin-left</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
-<tr><td>margin-right</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
-<tr><td>margin-top</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
-<tr><td>margin-bottom</td><td>[rpx pt %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
-<tr><td>max-height</td><td>[rpx pt %]</td><td></td></tr>
-<tr><td>max-width</td><td>[rpx pt %]</td><td></td></tr>
-<tr><td>min-height</td><td>[rpx pt %]</td><td></td></tr>
-<tr><td>min-width</td><td>[rpx pt %]</td><td></td></tr>
+<tr><td>padding</td><td>[rpx pt dp px % 组合]</td><td>0rpx</td><td>参见 CSS 标准写法</td></tr>
+<tr><td>padding-left</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
+<tr><td>padding-right</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
+<tr><td>padding-top</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
+<tr><td>padding-bottom</td><td>[rpx pt dp px percent]</td><td></td><td>共存时覆盖 padding 的值</td></tr>
+<tr><td>margin</td><td>[rpx pt dp px % 组合]</td><td>0rpx</td><td>参见 CSS 标准写法</td></tr>
+<tr><td>margin-left</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
+<tr><td>margin-right</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
+<tr><td>margin-top</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
+<tr><td>margin-bottom</td><td>[rpx pt dp px %]</td><td></td><td>共存时覆盖 margin 的值</td></tr>
+<tr><td>max-height</td><td>[rpx pt dp px %]</td><td></td></tr>
+<tr><td>max-width</td><td>[rpx pt dp px %]</td><td></td></tr>
+<tr><td>min-height</td><td>[rpx pt dp px %]</td><td></td></tr>
+<tr><td>min-width</td><td>[rpx pt dp px %]</td><td></td></tr>
 <tr><td>hidden</td><td>Boolean</td><td>false</td><td>是否隐藏</td></tr>
 <tr><td>enable</td><td>Boolean</td><td>true</td><td>是否启用，为 false 时不接收点击事件</td></tr>
 <tr><td>overflow</td><td>[visible hidden]</td><td>hidden</td><td>当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用</td></tr>
 <tr><td>border-color</td><td>color</td><td>#00000000</td><td>设置四条边框的颜色。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值</td></tr>
-<tr><td>border-width</td><td>rpx pt</td><td>0rpx</td><td>设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值</td></tr>
-<tr><td>border-radius</td><td>rpx pt</td><td>0rpx</td><td>设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值</td></tr>
+<tr><td>border-width</td><td>rpx pt dp px</td><td>0rpx</td><td>设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值</td></tr>
+<tr><td>border-radius</td><td>rpx pt dp px</td><td>0rpx</td><td>设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值</td></tr>
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="flexbox-布局属性"></a><a href="#flexbox-布局属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flexbox 布局属性</h2>
@@ -409,10 +409,10 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tr><td>Property</td><td>flex-grow</td><td>Float</td><td>0</td><td>拉伸因子</td></tr>
 <tr><td>Property</td><td>flex-shrink</td><td>Float</td><td>1</td><td>收缩规则</td></tr>
 <tr><td>Property</td><td>position</td><td>Enum</td><td>relative</td><td>relative/absolute</td></tr>
-<tr><td>Property</td><td>left</td><td>[rpx pt px %]</td><td>0rpx</td><td>left属性影响元素的水平位置</td></tr>
-<tr><td>Property</td><td>right</td><td>[rpx pt px %]</td><td>0rpx</td><td>right属性影响元素的水平位置</td></tr>
-<tr><td>Property</td><td>top</td><td>[rpx pt px %]</td><td>0rpx</td><td>top属性影响元素的竖直位置</td></tr>
-<tr><td>Property</td><td>bottom</td><td>[rpx pt px %]</td><td>0rpx</td><td>bottom属性影响元素的竖直位置</td></tr>
+<tr><td>Property</td><td>left</td><td>[rpx pt dp px %]</td><td>0rpx</td><td>left属性影响元素的水平位置</td></tr>
+<tr><td>Property</td><td>right</td><td>[rpx pt dp px %]</td><td>0rpx</td><td>right属性影响元素的水平位置</td></tr>
+<tr><td>Property</td><td>top</td><td>[rpx pt dp px %]</td><td>0rpx</td><td>top属性影响元素的竖直位置</td></tr>
+<tr><td>Property</td><td>bottom</td><td>[rpx pt dp px %]</td><td>0rpx</td><td>bottom属性影响元素的竖直位置</td></tr>
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="view"></a><a href="#view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>view</h2>
@@ -435,8 +435,8 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tr><td>Property</td><td>box-shadow</td><td>h-shadow v-shadow blur spread color inset</td><td></td><td>添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset</td></tr>
 <tr><td>Property</td><td>border-color</td><td>color</td><td>transparent（透明）</td><td>设置四条边框的颜色。此属性可设置 1 到 4 种颜色。</td></tr>
 <tr><td>Property</td><td>border-style</td><td>Enum</td><td>none</td><td>用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。</td></tr>
-<tr><td>Property</td><td>border-width</td><td>rpx pt</td><td>0rpx</td><td>为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值</td></tr>
-<tr><td>Property</td><td>border-radius</td><td>rpx pt</td><td>0rpx</td><td>设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）</td></tr>
+<tr><td>Property</td><td>border-width</td><td>rpx pt dp px</td><td>0rpx</td><td>为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值</td></tr>
+<tr><td>Property</td><td>border-radius</td><td>rpx pt dp px</td><td>0rpx</td><td>设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）</td></tr>
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="box-shadow-的详细说明"></a><a href="#box-shadow-的详细说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>box-shadow 的详细说明</h3>
@@ -447,10 +447,10 @@ captureHandle: <span class="hljs-function"><span class="hljs-keyword">function</
 <tr><th>值</th><th>类型</th><th>描述</th></tr>
 </thead>
 <tbody>
-<tr><td>h-shadow</td><td>rpx pt</td><td>必需。水平阴影的位置。允许负值</td></tr>
-<tr><td>v-shadow</td><td>rpx pt</td><td>必需。垂直阴影的位置。允许负值</td></tr>
-<tr><td>blur</td><td>rpx pt</td><td>可选。模糊距离，不允许负值</td></tr>
-<tr><td>spread</td><td>rpx pt</td><td>可选。阴影的尺寸，允许负值</td></tr>
+<tr><td>h-shadow</td><td>rpx pt dp px</td><td>必需。水平阴影的位置。允许负值</td></tr>
+<tr><td>v-shadow</td><td>rpx pt dp px</td><td>必需。垂直阴影的位置。允许负值</td></tr>
+<tr><td>blur</td><td>rpx pt dp px</td><td>可选。模糊距离，不允许负值</td></tr>
+<tr><td>spread</td><td>rpx pt dp px</td><td>可选。阴影的尺寸，允许负值</td></tr>
 <tr><td>color</td><td>color</td><td>可选。阴影的颜色。请参阅 CSS 颜色值，默认为黑色</td></tr>
 <tr><td>inset</td><td></td><td>可选。将外部阴影 (outset) 改为内部阴影，默认为 outset</td></tr>
 </tbody>
@@ -539,7 +539,7 @@ border-color:red;                   // 四边
 <tr><th>类型</th><th>属性/事件/方法名</th><th>参数类型</th><th>参数默认值</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>Property</td><td>font-size</td><td>rpx pt</td><td>手机系统默认</td><td>字体尺寸</td></tr>
+<tr><td>Property</td><td>font-size</td><td>rpx pt dp px</td><td>手机系统默认</td><td>字体尺寸</td></tr>
 <tr><td>Property</td><td>font-style</td><td>Enum</td><td>normal</td><td>normal/bold/italic/bold_italic</td></tr>
 <tr><td>Property</td><td>font-family</td><td>String</td><td>系统默认</td><td>字体集</td></tr>
 <tr><td>Property</td><td>color</td><td>color</td><td>#000000FF</td></tr>
@@ -565,7 +565,7 @@ border-color:red;                   // 四边
 <tr><th>类型</th><th>属性/事件/方法名</th><th>参数类型</th><th>参数默认值</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>Property</td><td>font-size</td><td>rpx pt</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
+<tr><td>Property</td><td>font-size</td><td>rpx pt dp px</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
 <tr><td>Property</td><td>font-style</td><td>Enum</td><td>normal</td><td>normal/bold/italic/bold_italic</td></tr>
 <tr><td>Property</td><td>font-family</td><td>String</td><td>系统默认</td><td>字体集</td></tr>
 <tr><td>Property</td><td>color</td><td>color</td><td>#000000FF</td></tr>
@@ -695,7 +695,7 @@ page({
 <tr><th>类型</th><th>属性/事件/方法名</th><th>参数类型</th><th>参数默认值</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>Property</td><td>font-size</td><td>rpx pt</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
+<tr><td>Property</td><td>font-size</td><td>rpx pt dp px</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
 <tr><td>Property</td><td>font-style</td><td>Enum</td><td>normal</td><td>normal/bold/italic/bold_italic</td></tr>
 <tr><td>Property</td><td>font-family</td><td>String</td><td>系统默认</td><td>字体集</td></tr>
 <tr><td>Property</td><td>color</td><td>color</td><td>#000000FF</td><td>取值格式为#RGBA</td></tr>
@@ -768,7 +768,7 @@ page({
 <tr><th>类型</th><th>属性/事件/方法名</th><th>参数类型</th><th>参数默认值</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>Property</td><td>font-size</td><td>rpx pt</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
+<tr><td>Property</td><td>font-size</td><td>rpx pt dp px</td><td>手机系统默认</td><td>文本 size，只能是整型</td></tr>
 <tr><td>Property</td><td>font-style</td><td>Enum</td><td>normal</td><td>normal/bold/italic/bold_italic</td></tr>
 <tr><td>Property</td><td>font-family</td><td>String</td><td>系统默认</td><td>字体集</td></tr>
 <tr><td>Property</td><td>color</td><td>color</td><td>#000000FF</td><td>取值格式为#RGBA</td></tr>
@@ -1391,9 +1391,9 @@ page({
 <tr><td>Property</td><td>vn:for-index</td><td>String</td><td>&quot;index&quot;</td><td>数组下标</td></tr>
 <tr><td>Property</td><td>vn:for-item</td><td>String</td><td>&quot;item&quot;</td><td>数组项</td></tr>
 <tr><td>Property</td><td>vn:switch</td><td>String</td><td>&quot;case&quot;</td><td>数组项类型</td></tr>
-<tr><td>Property</td><td>page-gap</td><td>rpx pt</td><td>0rpx</td><td>分页间距</td></tr>
-<tr><td>Property</td><td>previous-margin</td><td>rpx pt</td><td>0rpx</td><td>前边距，可用于露出前一页的一小部分</td></tr>
-<tr><td>Property</td><td>next-margin</td><td>rpx pt</td><td>0rpx</td><td>后边距，可用于露出下一页的一小部分</td></tr>
+<tr><td>Property</td><td>page-gap</td><td>rpx pt dp px</td><td>0rpx</td><td>分页间距</td></tr>
+<tr><td>Property</td><td>previous-margin</td><td>rpx pt dp px</td><td>0rpx</td><td>前边距，可用于露出前一页的一小部分</td></tr>
+<tr><td>Property</td><td>next-margin</td><td>rpx pt dp px</td><td>0rpx</td><td>后边距，可用于露出下一页的一小部分</td></tr>
 <tr><td>Property</td><td>circular</td><td>Boolean</td><td>false</td><td>是否开启无限滚动</td></tr>
 <tr><td>Property</td><td>autoplay</td><td>Boolean</td><td>false</td><td>是否开启自动滚动</td></tr>
 <tr><td>Property</td><td>interval</td><td>Number</td><td>5000</td><td>自动滚动的间隔时间，单位：毫秒</td></tr>
