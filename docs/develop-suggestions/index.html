@@ -72,9 +72,9 @@
 <li><p>尽量减少view层级和数量，可以提高渲染性能</p></li>
 <li><p>尽量减少半透明、圆角、阴影、Border的使用量，尽量用图片替代，可以提高性能</p></li>
 <li><p>尽量减少半透明的使用量，可以提高渲染性能</p></li>
-<li><p>优化JS API的性能 <br />
-原因：所有JS逻辑都是在UI现成中运行，包括JS API，所以应尽量优化JS API的性能。另外，JSAPI的参数和返回值应尽量减少冗余数据，因为所有数据都需要经过序列化传递，冗余数据会导致性能浪费。</p></li>
-<li><p>尽量减少需要使用webpack、rollup等打包工具处理的JS入口文件 <br />
-原因：webpack会把所有的依赖模块源码都添加到JS入口文件里，会导致JS源代码变大导致JS加载变慢。建议使用一到两个JS文件包含所有的外部依赖（npm模块），使用webpack仅处理这几个JS文件；而剩下的JS文件可以通过require这几个JS文件来使用外部模块。</p></li>
+<li><p>优化JSAPI的性能 <br />
+原因：所有JS逻辑都是在UI线程中运行，包括JSAPI。所以应尽量优化JSAPI的性能。另外，JSAPI的参数和返回值应尽量减少冗余数据，因为所有数据都需要经过序列化传递，冗余数据会导致性能浪费。</p></li>
+<li><p>尽量减少使用webpack、rollup等打包工具处理的JS入口文件数量 <br />
+原因：webpack会把所有的依赖模块源码都添加到JS入口文件里，会导致JS源代码变大导致加载变慢。建议使用一到两个JS文件包含所有的外部依赖（npm模块），让webpack仅处理这几个JS文件；而剩下的JS文件可以通过require这几个JS文件的方式引用外部模块。</p></li>
 </ol>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/getting-started-vscode"><span class="arrow-prev">← </span><span>使用Visual Studio Code</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Tencent Inc</section></footer></div></body></html>
