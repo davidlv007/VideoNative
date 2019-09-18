@@ -8,7 +8,7 @@
 <li>CSS增加 @media 媒体查询</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="07"></a><a href="#07" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.7</h2>
-<p>发布日期：开发中<br/></p>
+<p>发布日期：2019-9-17<br/></p>
 <p>新增功能：</p>
 <ul>
 <li>新增长度单位：dp（等同于Android上的dp和iOS上的point)</li>
@@ -17,6 +17,14 @@
 <blockquote>
 <ul>
 <li>rpx长度单位调整：从之前版本的 (1rpx = 屏幕短边宽度 / 750) 修改为 (1rpx = 页面宽度 / 750)。rpx变为页面宽度(1/750)的比例单位。当横竖屏翻转或者页面分屏时，rpx会根据新宽度重新计算和布局。</li>
+</ul>
+</blockquote>
+<p>问题修复：</p>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>修复循环view-pager的setPageIndex在边界时时候的显示异常问题</li>
+<li>修复在Android 8.0上会抛&quot;only fullscreen opaque activities can request orientation portrait&quot;异常的问题</li>
 </ul>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="06"></a><a href="#06" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.6</h2>
