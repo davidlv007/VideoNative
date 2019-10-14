@@ -55,47 +55,15 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">VN 组件</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="1-如何开发一个组件"></a><a href="#1-如何开发一个组件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 如何开发一个组件？</h2>
-<p>开发组件和开发page一样，也是使用vnml、css、js、json这4个文件，区别是页面的js是调用page方法构造，而组件的js里是调用component方法构造。</p>
-<p><code>component(obj)</code> obj参数对象可包含如下属性：</p>
-<ul>
-<li>对外暴露的属性集 properties，可包含若干个属性。每个属性的格式如下：</li>
-</ul>
-<pre><code class="hljs css language-javascript">properties : {
-    <span class="hljs-attr">demo</span> :              <span class="hljs-comment">//这是属性的名字</span>
-    {                   <span class="hljs-comment">//这个是demo属性的描述对象</span>
-        type: <span class="hljs-built_in">String</span>,             <span class="hljs-comment">//这是demo属性的类型 （仅做参考，可省略）</span>
-        value: <span class="hljs-string">"This is a demo"</span>   <span class="hljs-comment">//这是demo属性的默认值  （可省略）</span>
-    },
-
-    <span class="hljs-attr">another</span> : {},       <span class="hljs-comment">//另一个属性</span>
-
-    wrong_prop : <span class="hljs-string">"ok"</span>   <span class="hljs-comment">//注意：这不是属性！因为它的值不是对象</span>
-}
-</code></pre>
-<ul>
-<li>对外暴露的方法集 methods，可包含若干个方法。每个方法的格式如下：</li>
-</ul>
-<pre><code class="hljs css language-javascript">methods : {
-    <span class="hljs-attr">callme</span> :                <span class="hljs-comment">//这是方法名</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{           <span class="hljs-comment">//这是方法体</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>
-    }
-}
-</code></pre>
-<ul>
-<li>对外暴露的事件集 events，可包含若干个事件。每个事件的格式如下：</li>
-</ul>
-<pre><code class="hljs css language-javascript">events : {
-    <span class="hljs-attr">click</span> :  <span class="hljs-comment">//这是事件名</span>
-    {},      <span class="hljs-comment">//事件的描述对象</span>
-
-    wrong : <span class="hljs-string">""</span>  <span class="hljs-comment">//注意：这不是事件，因为它的值不是对象</span>
-}
-</code></pre>
-<ul>
+<p>  开发组件和开发page一样，也是使用vnml、css、js、json这4个文件，区别是页面的js是调用page方法，而组件的js里是调用component方法。</p>
+<p>  component(obj) 参数obj对象可包含如下属性：</p>
+<ol>
+<li>暴露给外部的属性集 properties，定义每一个属性的名字，以及默认值（可缺省）</li>
+<li>暴露给外部的方法集 methods</li>
+<li>暴露给外部的事件集 events</li>
 <li>组件生命周期回调函数：created、attached、ready、detached</li>
-</ul>
-<p>组件的一个完整例子：</p>
+</ol>
+<p>例子：</p>
 <pre><code class="hljs css language-javascript">component({
     <span class="hljs-comment">//这里定义自定义组件对外暴露的属性，包括属性名和默认值（可缺省）</span>
     <span class="hljs-comment">//每一个自定义属性通过一个对象进行描述，目前仅支持 value 字段用于描述属性默认值</span>
@@ -103,11 +71,10 @@
     properties: {
         <span class="hljs-comment">// 这里定义了innerText属性，它的默认值是字符串 'default value'</span>
         innerText: {
-            <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,    <span class="hljs-comment">//数据类型说明，仅做参考，可省略</span>
-            value: <span class="hljs-string">'default value'</span>
+            <span class="hljs-attr">value</span>: <span class="hljs-string">'default value'</span>
         },
 
-        <span class="hljs-comment">// 这里定义了innerProp属性，没有默认值</span>
+        <span class="hljs-comment">// 这里定义了innerProp属性，默认值为空</span>
         innerProp: {},
 
         <span class="hljs-comment">// 这里定义了 innerArray 属性，默认值是一个数组</span>
@@ -154,9 +121,9 @@
     }
 });
 </code></pre>
-<p>说明：组件支持和页面一样的css选择器。但组件和外界是断层的，所以级联选择器可能出现非预期的效果。</p>
+<p>  说明：组件可以所支持的css选择器。但组件和外界是断层的，所以级联选择器可能出现非预期的效果。</p>
 <h2><a class="anchor" aria-hidden="true" id="2-如何使用一个组件"></a><a href="#2-如何使用一个组件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. 如何使用一个组件？</h2>
-<p>使用方需要在自己的页面js中，调用 usingcomponents 方法来注册组件：定义组件名和路径。该函数可多次调用，可一次注册多个组件。后面设置的同名组件会覆盖前面设置的。也可在app的info.json中使用 usingcomponents {} 块注册，对该app下的所有页面生效。</p>
+<p>  使用方需要在自己的页面js或者组件js中，调用 usingcomponents 方法来注册组件：定义组件名和路径。该函数可多次调用，可一次注册多个组件。后面设置的同名组件会覆盖前面设置的。也可在app的info.json中使用 usingcomponents {} 块注册，对该app下的所有页面生效。</p>
 <p>例子：在页面js中调用 usingcomponents 函数</p>
 <pre><code class="hljs css language-javascript">   usingcomponents({
        <span class="hljs-string">'custom-text'</span> : <span class="hljs-string">'path/to/cusotm/text'</span>,
@@ -174,7 +141,7 @@
 <pre><code class="hljs css language-html">   <span class="hljs-tag">&lt;<span class="hljs-name">custom-text</span> <span class="hljs-attr">myprop</span>=<span class="hljs-string">"12345"</span>&gt;</span>demo custom component<span class="hljs-tag">&lt;/<span class="hljs-name">custom-text</span>&gt;</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="3-容器类的自定义组件"></a><a href="#3-容器类的自定义组件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 容器类的自定义组件</h2>
-<p>这里我们引入一个新的节点类型&lt;slot&gt;。当自定义组件需要引入外部定义的节点时，用&lt;slot&gt;来占位。当需要用到多个slot时，可以用名字来区别。例子：</p>
+<p>  这里我们引入一个新的节点类型&lt;slot&gt;。当自定义组件需要引入外部定义的节点时，用&lt;slot&gt;来占位。当需要用到多个slot时，可以用名字来区别。例子：</p>
 <p>组件vnml：</p>
 <pre><code class="hljs css language-html">   <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"header"</span> /&gt;</span>
@@ -190,25 +157,9 @@
    <span class="hljs-tag">&lt;/<span class="hljs-name">custom-view</span>&gt;</span>
 </code></pre>
 <p>  说明：这里外部定义的view，它绑定的数据、回调接口等，使用是外部的资源，而非组件内的</p>
-<h2><a class="anchor" aria-hidden="true" id="4-关于组件隔离"></a><a href="#4-关于组件隔离" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 关于组件隔离</h2>
-<ol>
-<li>组件使用自己的JS、CSS、JSON、vn.data。组件和外部的交互通过注册组件时暴露的方法和事件来实现</li>
-<li>组件自定义的属性，绑定到内部数据源，组件的vnml可通过胡子语法访问这些值，如: {{demoprop}}</li>
-<li>组件js通过 this.triggerEvent 来向外发送事件，如触发 bindmyevent 事件，调用 this.triggerEvent(&quot;myevent&quot;, o)，不需要加&quot;bind&quot;</li>
-<li>组件js也可以通过 vn.data.query(&quot;demoprop&quot;) 来获取自定义属性的值。</li>
-</ol>
-<h2><a class="anchor" aria-hidden="true" id="5-关于组件的数据传递"></a><a href="#5-关于组件的数据传递" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. 关于组件的数据传递</h2>
-<p>默认情况下数据都是由父容器往子组件单向流动的，组件内部对数据的修改不会影响到外部容器<br />
-注：从 <strong><em>0.8</em></strong> 版本开始，我们可以通过在外部容器vnml上使用属性修饰符 <code>.sync</code> 来实现数据的双向传递。例子：</p>
-<p>子组件 my-comp.js</p>
-<pre><code class="hljs css language-javascript">    component({
-        <span class="hljs-attr">properties</span>: {
-            <span class="hljs-attr">title</span> : {}
-        }
-    })
-</code></pre>
-<p>外部容器 index.vnml</p>
-<pre><code class="hljs css language-html">   <span class="hljs-tag">&lt;<span class="hljs-name">my-comp</span> <span class="hljs-attr">title.sync</span>=<span class="hljs-string">"{{data.text}}"</span> /&gt;</span>
-</code></pre>
-<p>当my-comp组件内部修改了 title 的值，会同步更新到外部容器的 data.text 数据。</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api-expression"><span class="arrow-prev">← </span><span>VN 表达式</span></a><a class="docs-next button" href="/docs/api-native-component"><span>Native 组件</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-如何开发一个组件">1. 如何开发一个组件？</a></li><li><a href="#2-如何使用一个组件">2. 如何使用一个组件？</a></li><li><a href="#3-容器类的自定义组件">3. 容器类的自定义组件</a></li><li><a href="#4-关于组件隔离">4. 关于组件隔离</a></li><li><a href="#5-关于组件的数据传递">5. 关于组件的数据传递</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Tencent Inc</section></footer></div></body></html>
+<h2><a class="anchor" aria-hidden="true" id="4-关于组件隔离和解耦"></a><a href="#4-关于组件隔离和解耦" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 关于组件隔离和解耦</h2>
+<p>  组件使用自己的JS、CSS、JSON、vn.data。组件和外部的交互通过注册组件时暴露的方法和事件来实现。
+  组件自定义的属性，绑定到内部数据源，组件的vnml可通过胡子语法访问这些值，如: {{demoprop}}
+  组件js通过 this.triggerEvent 来向外发送事件，如触发 bindmyevent 事件，调用 this.triggerEvent(&quot;myevent&quot;, o)，不需要加&quot;bind&quot;
+  组件js也可以通过 vn.data.query(&quot;demoprop&quot;) 来获取自定义属性的值。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api-expression"><span class="arrow-prev">← </span><span>VN 表达式</span></a><a class="docs-next button" href="/docs/api-native-component"><span>Native 组件</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-如何开发一个组件">1. 如何开发一个组件？</a></li><li><a href="#2-如何使用一个组件">2. 如何使用一个组件？</a></li><li><a href="#3-容器类的自定义组件">3. 容器类的自定义组件</a></li><li><a href="#4-关于组件隔离和解耦">4. 关于组件隔离和解耦</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Tencent Inc</section></footer></div></body></html>
