@@ -86,7 +86,8 @@
 <ul>
 <li><strong>Float toRpx(String value)</strong></li>
 </ul>
-<p>将输入字符串转换为数字型的rpx值。例如：&quot;10pt&quot;、&quot;10px&quot;、&quot;10rpx&quot;</p>
+<p><em>注: 0.8版本后请使用toUnit()</em> <br />
+将输入字符串转换为数字型的rpx值。例如：&quot;10pt&quot;、&quot;10px&quot;、&quot;10rpx&quot;</p>
 <p><strong>参数说明:</strong></p>
 <table>
 <thead>
@@ -103,6 +104,30 @@
 </thead>
 <tbody>
 <tr><td>Float</td><td>数字类型的rpx值</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Var toUnit(String value, String unit)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>通用长度转换函数。<br />
+将输入的长度字符串，转换为指定单位的数字。如果输入参数不合法，则返回undefined。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td>String</td><td>是</td><td>形如：&quot;10pt&quot;,&quot;10px&quot;,&quot;10rpx&quot;, &quot;10dp&quot; 等带长度单位的字符串</td></tr>
+<tr><td>unit</td><td>String</td><td>是</td><td>长度单位。有效值为：&quot;rpx&quot;, &quot;pt&quot;, &quot;px&quot;, &quot;dp&quot;</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Var</td><td>如果输入参数合法，则返回换算后的数字。如果输入不合法，则返回undefined</td></tr>
 </tbody>
 </table>
 <ul>
