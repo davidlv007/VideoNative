@@ -114,7 +114,7 @@
 <tr><td>touchend</td><td>触摸结束</td><td>除了滑动控件(scroll-view,list,view-pager等)之外的所有控件</td><td>event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标)</td><td>支持</td><td><em>since 0.4</em>：新增参数event.changedTouches</td></tr>
 <tr><td>fullscreenchange</td><td>全屏状态变化</td><td>当一个组件进入或退出全屏模式时，会收到该事件回调</td><td>-</td><td>不支持</td><td><em>since 0.4</em></td></tr>
 <tr><td>fullscreenerror</td><td>进入全屏失败</td><td>当一个组件无法进入全屏模式时，会收到该事件回调</td><td>-</td><td>不支持</td><td><em>since 0.4</em></td></tr>
-<tr><td>resize</td><td>控件尺寸变化</td><td>当一个组件的尺寸发生变化时，会发送该事件</td><td>event.width: Number (组件宽度)<br/>  event.height: Number (组件高度)</td><td>不支持</td><td><em>since 0.8</em></td></tr>
+<tr><td>resize</td><td>控件尺寸变化</td><td>当一个组件的尺寸发生变化时，会发送该事件</td><td>event.width: Number (组件宽度)<br/>  event.height: Number (组件高度)</td><td>不支持</td><td><em>since 0.8</em> <br />注：这个事件在组件布局完毕之后通知</td></tr>
 </tbody>
 </table>
 <ol start="3">
