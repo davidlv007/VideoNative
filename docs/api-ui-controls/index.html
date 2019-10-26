@@ -1407,7 +1407,9 @@ page({
 <tr><td>EventHandler</td><td>bindScroll</td><td>function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex)</td><td></td><td>滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex</td></tr>
 <tr><td>EventHandler</td><td>bindScrollStateChange</td><td>function(int scrollState)</td><td></td><td>0:空闲;1:拖拽;2:滑动</td></tr>
 <tr><td>EventHandler</td><td>bindPageChange</td><td>function(int pageIndex)</td><td></td><td>滑动停止时指向的分页，pageIndex</td></tr>
-<tr><td>Method</td><td>void setPageIndex(Integer index)</td><td>Integer</td><td></td><td>设置当前的分页编号</td></tr>
+<tr><td>EventHandler</td><td>bindItemAttach</td><td>function(Object params)</td><td></td><td>页面上屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.8)</em> }</td></tr>
+<tr><td>EventHandler</td><td>bindItemDetach</td><td>function(Object params)</td><td></td><td>页面下屏时回调。params.event = { position:位置, cell:cell节点 <em>(since 0.8)</em> } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。</td></tr>
+<tr><td>Method</td><td>void setPageIndex(Integer index, Boolean smooth)</td><td>Integer</td><td></td><td>设置当前的分页编号 （注：<em>since 0.8</em> 增加第二参数smooth用于控制是否平滑滚动，缺省值为true）</td></tr>
 <tr><td>Method</td><td>Integer getPageIndex()</td><td></td><td></td><td>获取当前的分页编号</td></tr>
 </tbody>
 </table>
