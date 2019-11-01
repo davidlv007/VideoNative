@@ -63,13 +63,13 @@
 <pre><code class="hljs css language-javascript">properties : {
     <span class="hljs-attr">demo</span> :              <span class="hljs-comment">//这是属性的名字</span>
     {                   <span class="hljs-comment">//这个是demo属性的描述对象</span>
-        type: <span class="hljs-built_in">String</span>,             <span class="hljs-comment">//这是demo属性的类型 （仅做参考，可省略）</span>
-        value: <span class="hljs-string">"This is a demo"</span>   <span class="hljs-comment">//这是demo属性的默认值  （可省略）</span>
+        <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,             <span class="hljs-comment">//这是demo属性的类型 （仅做参考，可省略）</span>
+        <span class="hljs-attr">value</span>: <span class="hljs-string">"This is a demo"</span>   <span class="hljs-comment">//这是demo属性的默认值  （可省略）</span>
     },
 
     <span class="hljs-attr">another</span> : {},       <span class="hljs-comment">//另一个属性</span>
 
-    wrong_prop : <span class="hljs-string">"ok"</span>   <span class="hljs-comment">//注意：这不是属性！因为它的值不是对象</span>
+    <span class="hljs-attr">wrong_prop</span> : <span class="hljs-string">"ok"</span>   <span class="hljs-comment">//注意：这不是属性！因为它的值不是对象</span>
 }
 </code></pre>
 <ul>
@@ -89,7 +89,7 @@
     <span class="hljs-attr">click</span> :  <span class="hljs-comment">//这是事件名</span>
     {},      <span class="hljs-comment">//事件的描述对象</span>
 
-    wrong : <span class="hljs-string">""</span>  <span class="hljs-comment">//注意：这不是事件，因为它的值不是对象</span>
+    <span class="hljs-attr">wrong</span> : <span class="hljs-string">""</span>  <span class="hljs-comment">//注意：这不是事件，因为它的值不是对象</span>
 }
 </code></pre>
 <ul>
@@ -100,18 +100,18 @@
     <span class="hljs-comment">//这里定义自定义组件对外暴露的属性，包括属性名和默认值（可缺省）</span>
     <span class="hljs-comment">//每一个自定义属性通过一个对象进行描述，目前仅支持 value 字段用于描述属性默认值</span>
     <span class="hljs-comment">//属性的默认值可以为基本类型、数组、对象</span>
-    properties: {
+    <span class="hljs-attr">properties</span>: {
         <span class="hljs-comment">// 这里定义了innerText属性，它的默认值是字符串 'default value'</span>
-        innerText: {
+        <span class="hljs-attr">innerText</span>: {
             <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,    <span class="hljs-comment">//数据类型说明，仅做参考，可省略</span>
-            value: <span class="hljs-string">'default value'</span>
+            <span class="hljs-attr">value</span>: <span class="hljs-string">'default value'</span>
         },
 
         <span class="hljs-comment">// 这里定义了innerProp属性，没有默认值</span>
-        innerProp: {},
+        <span class="hljs-attr">innerProp</span>: {},
 
         <span class="hljs-comment">// 这里定义了 innerArray 属性，默认值是一个数组</span>
-        innerArray: {
+        <span class="hljs-attr">innerArray</span>: {
             <span class="hljs-attr">value</span>: [
                 { <span class="hljs-attr">index</span> : <span class="hljs-number">0</span> },
                 { <span class="hljs-attr">index</span> : <span class="hljs-number">1</span> }
@@ -119,7 +119,7 @@
         },
 
         <span class="hljs-comment">// 这里定义了 innerObject 属性，默认值是一个对象</span>
-        innerObject: {
+        <span class="hljs-attr">innerObject</span>: {
             <span class="hljs-attr">value</span>: {
                 <span class="hljs-attr">name</span> : <span class="hljs-string">'inner'</span>,
                 <span class="hljs-attr">demo</span> : <span class="hljs-literal">true</span>
@@ -128,7 +128,7 @@
     },
 
     <span class="hljs-comment">//这里定义自定义组件对外暴露的dom接口</span>
-    methods : {
+    <span class="hljs-attr">methods</span> : {
         <span class="hljs-attr">getName</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         },
         <span class="hljs-attr">openPage</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -137,20 +137,20 @@
 
     <span class="hljs-comment">//对外暴露的自定义事件</span>
     <span class="hljs-comment">//每一个自定义事件通过一个对象进行描述。目前事件没有选项需要额外描述，用空对象即可。</span>
-    events : {
+    <span class="hljs-attr">events</span> : {
         <span class="hljs-comment">//这里定义了一个 myevent 事件</span>
-        myevent : {},
+        <span class="hljs-attr">myevent</span> : {},
 
         <span class="hljs-comment">//这里定义了一个 myeventNext 事件</span>
-        myeventNext : {}
+        <span class="hljs-attr">myeventNext</span> : {}
     },
 
     <span class="hljs-comment">//组件声明周期函数，表示组件已经创建</span>
-    created : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-attr">created</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
     },
 
     <span class="hljs-comment">//组件声明周期函数，表示组件已经布局并展示</span>
-    ready : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-attr">ready</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
     }
 });
 </code></pre>

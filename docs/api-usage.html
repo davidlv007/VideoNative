@@ -126,13 +126,13 @@ button.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickList
 <ol>
 <li><p>组件通过指定事件 <code>Key</code> 属性，可以接收事件，并执行任意 <code>JScript</code> 定义好的函数</p></li>
 <li><p>事件参数为 V8Object，通用参数的结构为：</p>
-<pre><code class="hljs css language-json">/**V8Object 事件参数**/
+<pre><code class="hljs css language-json"><span class="hljs-comment">/**V8Object 事件参数**/</span>
 {
-    "type": "bindTap", //回调函数名称 
-    "target": {},   // 回调事件触发的dom对象，可能是text，button等
-    "event":{},  // 回调参数，不同的事件，参数不一样，详情参见控件页
-    "timeStamp": 1511787001494, //回调时间戳 
-    "dataset": {} //回调的视图附带的数据列表
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"bindTap"</span>, <span class="hljs-comment">//回调函数名称 </span>
+    <span class="hljs-attr">"target"</span>: {},   <span class="hljs-comment">// 回调事件触发的dom对象，可能是text，button等</span>
+    <span class="hljs-attr">"event"</span>:{},  <span class="hljs-comment">// 回调参数，不同的事件，参数不一样，详情参见控件页</span>
+    <span class="hljs-attr">"timeStamp"</span>: <span class="hljs-number">1511787001494</span>, <span class="hljs-comment">//回调时间戳 </span>
+    <span class="hljs-attr">"dataset"</span>: {} <span class="hljs-comment">//回调的视图附带的数据列表</span>
 }
 </code></pre></li>
 <li><p>在控件中可以定义数据，这些数据将会放在 <code>dataset</code> 里面，通过事件参数传递到 JS 层</p>
@@ -169,10 +169,10 @@ dataset({
 <li>离线包版本号：随着需求变更或 BUG 修复，一个 appId 可能对应多个版本。版本号为8位数字（同样是 WebApp 后台的规范）。离线包升级时，高版本号会覆盖低版本号。</li>
 <li>info.json：每个离线包的根目录下面都有一个 info.json 用于描述当前离线包的 appId 和版本号，示例如下：</li>
 </ul>
-<pre><code class="hljs css language-json">/** info.json **/
+<pre><code class="hljs css language-json"><span class="hljs-comment">/** info.json **/</span>
 {
-    "packageId" : "38",
-    "version" : "17120519"
+    <span class="hljs-attr">"packageId"</span> : <span class="hljs-string">"38"</span>,
+    <span class="hljs-attr">"version"</span> : <span class="hljs-string">"17120519"</span>
 }
 </code></pre></li>
 <li><p>本地图片</p>
